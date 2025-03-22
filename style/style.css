@@ -1,0 +1,165 @@
+@import './reset.css';
+
+.wrapper{
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+.inner {
+    padding: 30px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 30px;
+    border: 1px solid grey;
+    max-width: 500px;
+    width: 100%;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+
+.form_textarea {
+    min-height: 50px;
+    padding: 10px;
+    font-size: 18px;
+} 
+
+.form_send-btn,
+.form_cancel-btn {
+    border: 1px solid grey;
+    padding: 3px;
+    border-radius: 5px;
+    color: inherit;
+}
+
+.form_send-btn:active,
+.form_cancel-btn:active {
+    transform: scale(0.97);
+}
+
+.output {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+
+.task {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    border: 1px solid grey;
+    border-radius: 5px;
+    word-wrap: break-word;
+    cursor: move;
+}
+
+@media (min-width: 800px) {
+    .task.dragging {
+        opacity: 0.6;
+    }
+}
+
+.task_index{
+    position: absolute;
+    text-align: right;
+    width: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    left: -25px;
+}
+
+.task_text {
+    flex: 1;
+    margin: 0 10px;
+    word-break: break-word;
+    max-width: 70%;
+}
+
+.task.done {
+    opacity: 0.5;
+}
+.task.done .task_text {
+    text-decoration: line-through;
+}
+
+.task.pinned {
+    border-bottom: 2px solid red;
+}
+
+.task_btns {
+    display: flex;
+    gap: 5px;
+    flex-shrink: 0;
+}
+
+
+.task_pinned svg path,
+.task_done svg path {
+    fill: transparent;
+    stroke: #999;
+}
+
+.task_edit svg path,
+.task_del svg path {
+    stroke: #999;
+    fill: #999;
+}
+
+.task_pinned.active svg path,
+.task_pinned:active svg path {
+    stroke: red;
+}
+
+.task_done.active svg path,
+.task_done:active svg path {
+    stroke: green;
+}
+
+.task_del:active svg path,
+.task_edit:active svg path {
+    stroke: #1e1e24;
+    fill: #1e1e24;
+}
+
+.filters {
+    margin-bottom: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+.filter-btn {
+    padding: 5px 10px;
+    border: 1px solid #c9c6c6;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    cursor: pointer;
+}
+
+.filter-btn.active {
+    background-color: #007bff;
+    color: white;
+    border-color: #007bff;
+}
+.clear-completed-btn {
+    padding: 5px 10px;
+    border: 1px solid #c9c6c6;
+    border-radius: 5px;
+    background-color: #f0c4c4;
+    cursor: pointer;
+    margin-left: auto;
+}
+
+.clear-completed-btn:hover {
+    background-color: #ff4444;
+    color: white;
+    border-color: #ff4444;
+}
